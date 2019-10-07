@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Soundmap</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <style>
+      body {
+        background: black;
+        font-family: sans-serif;
+        color: white;
+        font-size: 20px;
+      }
+      #visualSync {
+        position: fixed;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 3em;
+        margin-top: -1.5em;
+        text-align: center;
+      }
+      #visualSync div {
+        margin: 0 0.5em;
+        width: 3em;
+        height: 3em;
+        border-radius: 100%;
+        background: red;
+        display: inline-block;
+        transition: all 0s linear;
+      }
+      #cycleStep {
+        position: fixed;
+        top: 2em;
+        left: 2em;
+      }
+    </style>
+    <div id="visualSync"></div>
+    <div id="cycleStep"></div>
+    <script src="/bundle.js"></script>
+  </body>
+</html>
