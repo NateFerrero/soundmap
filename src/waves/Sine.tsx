@@ -9,9 +9,9 @@ const smooth = (range: number, value: number, low: number, high: number) =>
 const cycleStep = document.getElementById('cycleStep')
 const visualSync = document.getElementById('visualSync')
 
-const DIVISIONS = 4
+const DIVISIONS = 3
 const CYCLE = 1728
-const SPEED = 30
+const SPEED = 24
 
 const FREQ_BASE = 110
 const FREQ_LOW = FREQ_BASE * 2
@@ -74,8 +74,8 @@ export const Sine = (): null => {
         const FREQ_DELTA = frequency - FREQ_LOW
 
         const red = smooth(FREQ_BAND, FREQ_DELTA, 0, 360)
-        const green = smooth(FREQ_BAND * 2, FREQ_DELTA, 0, 360)
-        const blue = smooth(FREQ_BAND * 3, FREQ_DELTA, 0, 360)
+        const green = smooth(FREQ_BAND, FREQ_DELTA - FREQ_BAND, 0, 360)
+        const blue = smooth(FREQ_BAND, FREQ_DELTA - 2 * FREQ_BAND, 0, 360)
 
         visualNodes[
           index
@@ -90,10 +90,10 @@ export const Sine = (): null => {
 
         oscillator.frequency.exponentialRampToValueAtTime(
           frequency,
-          audioContext.currentTime + 5 / SPEED
+          audioContext.currentTime + 2.4 / SPEED
         )
       })
-    }, 5000 / SPEED)
+    }, 2400 / SPEED)
   }, [])
 
   return null
